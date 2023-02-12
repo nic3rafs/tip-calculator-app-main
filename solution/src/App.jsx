@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="font-bold bg-light-grayish-cyan h-screen flex flex-col items-center ">
-      <img src={logo} className=" p-12 md:p-16" />
+      <img src={logo} className=" p-12 md:p-16" alt="logo image"/>
       <form
         className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-7/12 sm:grid 
       sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 "
