@@ -4,18 +4,28 @@ import InputField from "./components/InputField";
 import RadioButton from "./components/RadioButton";
 
 function App() {
-  const [bill, setBill] = useState(0);
-  const [percent, setPercent] = useState(0);
-  const [people, setPeople] = useState(0);
+  const [bill, setBill] = useState("");
+  const [percent, setPercent] = useState("");
+  const [customPercent, setCustomPercent] = useState("");
+  const [people, setPeople] = useState("");
   const [billErrorMessage, setBillErrorMessage] = useState(null);
   const [peopleErrorMessage, setPeopleErrorMessage] = useState(null);
+
+  let currentPercent;
+  if (!percent && customPercent) {
+    console.log('!percent && customPercent');
+    currentPercent = customPercent;
+  } else if (percent && !customPercent) {
+    console.log('percent && !customPercent');
+    currentPercent = percent;
+  }
 
   let tip = 0;
   let total = 0;
   let tipAmountPerPerson = 0;
 
-  if (bill && percent && people) {
-    tip = (+bill * +percent) / 100;
+  if (bill && currentPercent && people) {
+    tip = (+bill * +currentPercent) / 100;
     total = (+bill + +tip) / +people;
     tipAmountPerPerson = +tip / +people;
   }
@@ -23,6 +33,7 @@ function App() {
   function handleChangeBill(e) {
     if (e.target.value <= 0) {
       setBillErrorMessage("Can't be zero");
+      setBill("");
     } else {
       setBillErrorMessage(null);
       setBill(e.target.value);
@@ -31,26 +42,30 @@ function App() {
   function handleChangePeople(e) {
     if (e.target.value <= 0) {
       setPeopleErrorMessage("Can't be zero");
+      setPeople("");
     } else {
       setPeopleErrorMessage(null);
       setPeople(+e.target.value);
     }
   }
   function handleChangeReset() {
-    setBill(0);
-    setPercent(0);
-    setPeople(0);
+    setBill("");
+    setPercent("");
+    setPeople("");
+    setCustomPercent("");
     setBillErrorMessage(null);
     setPeopleErrorMessage(null);
   }
   function handleSelectPercent(e) {
     setPercent(e.target.value);
+    setCustomPercent("");
   }
   function handleCustomPercentFocus() {
     setPercent(0);
   }
   function handleCustomPercentChange(e) {
-    setPercent(e.target.value);
+    setCustomPercent(e.target.value);
+    setPercent("")
   }
 
   return (
@@ -61,8 +76,8 @@ function App() {
         alt="logo image"
       />
       <form
-        className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-7/12 sm:grid 
-      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 sm:z-10"
+        className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 sm:grid 
+      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 sm:z-10 sm:mt-12"
       >
         <div className="mb-8 sm:p-4 sm:mb-0">
           <InputField
@@ -72,6 +87,7 @@ function App() {
             onChange={handleChangeBill}
             errorMessage={billErrorMessage}
             alt="Dollar icon"
+            value={bill}
           />
 
           {/* PERCENT SELECTION */}
@@ -95,12 +111,13 @@ function App() {
                   name="percent"
                   key="custom"
                   placeholder="Custom"
-                  className="block w-full rounded-md bg-very-light-grayish-cyan  p-2 px-6 
+                  className="block  rounded-md bg-very-light-grayish-cyan  p-2 px-6 
                   focus:outline-strong-cyan text-2xl text-right 
                   text-very-dark-cyan placeholder-dark-grayish-cyan
-                  sm:text-xl sm:pl-2 sm:pr-6"
+                  sm:text-xl sm:pl-2 sm:pr-6 h-full w-full"
                   onFocus={handleCustomPercentFocus}
                   onChange={handleCustomPercentChange}
+                  value={customPercent}
                 ></input>
               </div>
             </div>
@@ -113,6 +130,7 @@ function App() {
             onChange={handleChangePeople}
             errorMessage={peopleErrorMessage}
             alt="Person icon"
+            value={people}
           />
         </div>
 
@@ -142,8 +160,9 @@ function App() {
             type="reset"
             className="block w-full py-2 rounded-md
            bg-strong-cyan text-very-dark-cyan text-2xl mt-2
-           sm:mt-auto"
+           sm:mt-auto disabled:bg-dark-grayish-cyan"
             onClick={handleChangeReset}
+            disabled={!bill && !percent && !people && !customPercent}
           >
             Reset
           </button>

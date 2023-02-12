@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputField = ({ labelText, id, icon, onChange, errorMessage, alt }) => {
+const InputField = ({ labelText, id, icon, onChange, errorMessage, alt, value }) => {
   return (
     <div className="relative">
       <div className="pb-2">
@@ -29,6 +29,7 @@ const InputField = ({ labelText, id, icon, onChange, errorMessage, alt }) => {
            }`}
           placeholder="0"
           onChange={onChange}
+          value={value}
         ></input>
       </div>
     </div>
