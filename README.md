@@ -1,12 +1,12 @@
-# Frontend Mentor - Tip calculator app solution
+# Tip calculator app with React and Tailwind 
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
 A tip calculator app built with **React**. The app allows the user to input the bill amount, select a percentage tip or input a custom tip, and the number of people splitting the bill. The app then calculates the tip amount and the total bill, as well as the tip amount per person. Also includes error handling for invalid inputs.
 
 ## Table of contents
 
-- [Frontend Mentor - Tip calculator app solution](#frontend-mentor---tip-calculator-app-solution)
+- [Tip calculator app with React and Tailwind](#tip-calculator-app-with-react-and-tailwind)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
