@@ -77,7 +77,7 @@ function App() {
       />
       <form
         className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 sm:grid 
-      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 sm:z-10 sm:mt-12"
+      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 sm:z-10 sm:mt-12 sm:shadow-xl sm:shadow-dark-grayish-cyan/20"
       >
         <div className="mb-8 sm:p-4 sm:mb-0">
           <InputField
