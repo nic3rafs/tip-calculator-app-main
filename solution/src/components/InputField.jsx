@@ -23,9 +23,9 @@ const InputField = ({ labelText, id, icon, onChange, errorMessage }) => {
           name={id}
           id={id}
           className={`block w-full rounded-md bg-very-light-grayish-cyan  p-2 pl-12 pr-6 
-           focus:outline-strong-cyan text-2xl text-right 
+            text-2xl text-right 
            text-very-dark-cyan placeholder-grayish-cyan/70 ${
-             errorMessage ? "focus:outline-[red]" : ""
+             errorMessage ? "focus:outline-[red]" : "focus:outline-strong-cyan"
            }`}
           placeholder="0"
           onChange={onChange}
