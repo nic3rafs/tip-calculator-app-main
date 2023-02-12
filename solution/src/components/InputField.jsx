@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputField = ({ labelText, id, icon, onChange, errorMessage }) => {
+const InputField = ({ labelText, id, icon, onChange, errorMessage, alt }) => {
   return (
     <div className="relative">
       <div className="pb-2">
@@ -14,9 +14,9 @@ const InputField = ({ labelText, id, icon, onChange, errorMessage }) => {
         )}
       </div>
 
-      <div className="relative  rounded-md shadow-sm mb-7">
+      <div className="relative  rounded-md shadow-sm">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <img src={icon} className=""></img>
+          <img src={icon} className="" alt={alt}></img>
         </div>
         <input
           type="number"
