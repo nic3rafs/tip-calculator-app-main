@@ -113,7 +113,7 @@ function App() {
               <p className="text-grayish-cyan text-sm">/ person</p>
             </div>
             <p className="text-4xl text-strong-cyan xl:text-5xl">
-              ${tipAmountPerPerson ? tipAmountPerPerson : "0.00"}
+              ${tipAmountPerPerson ? Math.round(tipAmountPerPerson * 100) / 100  : "0.00"}
             </p>
           </div>
           <div className="flex justify-between">
@@ -122,7 +122,7 @@ function App() {
               <p className="text-grayish-cyan text-sm">/ person</p>
             </div>
             <p className="text-4xl text-strong-cyan xl:text-5xl">
-              ${total ? total : "0.00"}
+              ${total ? Math.round(total * 100) / 100 : "0.00"}
             </p>
           </div>
           <button
