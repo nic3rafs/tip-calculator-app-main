@@ -16,7 +16,7 @@ function App() {
 
   if (bill && percent && people) {
     tip = (+bill * +percent) / 100;
-    total = +bill + +tip;
+    total = (+bill + +tip) / +people;
     tipAmountPerPerson = +tip / +people;
   }
 
@@ -39,7 +39,9 @@ function App() {
   function handleChangeReset() {
     setBill(0);
     setPercent(0);
-    setPeople(1);
+    setPeople(0);
+    setBillErrorMessage(null)
+    setPeopleErrorMessage(null)
   }
   function handleSelectPercent(e) {
     setPercent(e.target.value);
@@ -54,8 +56,10 @@ function App() {
   return (
     <div className="font-bold bg-light-grayish-cyan h-screen flex flex-col items-center ">
       <img src={logo} className=" p-12 md:p-16" />
-      <form className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-7/12 sm:grid 
-      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 ">
+      <form
+        className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-7/12 sm:grid 
+      sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 "
+      >
         <div className="sm: p-4">
           <InputField
             labelText="Bill"
@@ -113,7 +117,10 @@ function App() {
               <p className="text-grayish-cyan text-sm">/ person</p>
             </div>
             <p className="text-4xl text-strong-cyan xl:text-5xl">
-              ${tipAmountPerPerson ? Math.round(tipAmountPerPerson * 100) / 100  : "0.00"}
+              $
+              {tipAmountPerPerson
+                ? Math.round(tipAmountPerPerson * 100) / 100
+                : "0.00"}
             </p>
           </div>
           <div className="flex justify-between">
