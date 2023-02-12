@@ -60,7 +60,7 @@ function App() {
         className="bg-white h-full w-full rounded-t-3xl p-8 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-7/12 sm:grid 
       sm:grid-cols-2 sm:h-min sm:rounded-3xl sm:gap-8 "
       >
-        <div className="sm: p-4">
+        <div className="sm:p-4">
           <InputField
             labelText="Bill"
             id="bill"
