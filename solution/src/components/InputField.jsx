@@ -8,7 +8,7 @@ const InputField = ({ labelText, id, icon, onChange, errorMessage }) => {
           {labelText}
         </label>
         {errorMessage && (
-          <p className="text-[red] text-sm text-right inline right-0 absolute">
+          <p className="absolute text-[red] text-sm text-right inline right-0 mt-1 ">
             {errorMessage}
           </p>
         )}
